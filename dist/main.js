@@ -116,7 +116,17 @@ eval("{\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleEle
   \**********************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nconsole.log('ready');\n\n//# sourceURL=webpack://odinweatherapi/./src/index.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _server_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./server.js */ \"./src/server.js\");\n\n\n\n_server_js__WEBPACK_IMPORTED_MODULE_1__.api.town = \"George\";\n_server_js__WEBPACK_IMPORTED_MODULE_1__.api.country = \"South Africa\";\n_server_js__WEBPACK_IMPORTED_MODULE_1__.api.metric = \"metric\";\n\nconst rawData = async () => {\n    try {\n        const response = await fetch(_server_js__WEBPACK_IMPORTED_MODULE_1__.api.finalURL);\n        if (!response.ok) {\n            throw new Error(`Response status: ${response.status}`)\n        }\n\n        const result = await response.json();\n        return result;\n    } catch (error) {\n        console.error(error.message);\n    }\n}\n\nconst processData = async () => {\n    try {\n        const data = await rawData();\n\n        const processed = {\n            conditions: data.currentConditions.conditions,\n            time: data.currentConditions.datetime,\n            humidity: data.currentConditions.humidity,\n            temperature: data.currentConditions.temp,\n        };\n\n        return processed;\n    } catch (error) {\n        console.error(error.message);\n    }\n}\n\nprocessData().then((response) => {\n    console.log(response.conditions);\n});\n\n//# sourceURL=webpack://odinweatherapi/./src/index.js?\n}");
+
+/***/ },
+
+/***/ "./src/server.js"
+/*!***********************!*\
+  !*** ./src/server.js ***!
+  \***********************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   api: () => (/* binding */ api)\n/* harmony export */ });\nconst api = {\n    town: \"\",\n    country: \"\",\n    metric: \"\",\n    key: \"HYQHE67AXHWUKUPUWBNAAXQBN\",\n\n    get finalURL() {\n        return `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.town}%20${this.country}?unitGroup=${this.metric}&key=${this.key}`;\n    }\n}\n\n\n\n//# sourceURL=webpack://odinweatherapi/./src/server.js?\n}");
 
 /***/ }
 
