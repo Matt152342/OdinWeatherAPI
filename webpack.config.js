@@ -1,4 +1,5 @@
 import path from "node:path";
+import HtmlWepackPlugin from "html-webpack-plugin";
 
 export default {
     mode: "development",
@@ -13,4 +14,10 @@ export default {
             template: "./src/index.html",
         }),
     ],
+    rules: [
+        {
+            test: /\.css$/i,
+            use: ["style-loader", "css-loader"],
+        }
+    ]
 };
