@@ -8,4 +8,9 @@ export default {
         path: path.resolve(import.meta.dirname, "dist"),
         clean: true,
     },
+    plugin: [
+        new HtmlWepackPlugin({
+            template: "./src/index.html",
+        }),
+    ],
 };
