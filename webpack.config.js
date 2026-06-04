@@ -9,15 +9,17 @@ export default {
         path: path.resolve(import.meta.dirname, "dist"),
         clean: true,
     },
-    plugin: [
+    plugins: [
         new HtmlWepackPlugin({
             template: "./src/index.html",
         }),
     ],
-    rules: [
-        {
-            test: /\.css$/i,
-            use: ["style-loader", "css-loader"],
-        }
-    ]
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            },
+        ],
+    }
 };
