@@ -1,8 +1,6 @@
 import "./style.css";
 import { api } from "./server.js";
 
-api.town = "George";
-api.country = "South Africa";
 api.metric = "metric";
 
 const rawData = async () => {
@@ -25,9 +23,10 @@ const processData = async () => {
 
         const processed = {
             conditions: data.currentConditions.conditions,
-            time: data.currentConditions.datetime,
+            precipation: data.currentConditions.precip,
             humidity: data.currentConditions.humidity,
             temperature: data.currentConditions.temp,
+            uvIndex: data.currentConditions.uvindex,
         };
 
         return processed;
@@ -36,6 +35,15 @@ const processData = async () => {
     }
 }
 
-processData().then((response) => {
-    console.log(response.conditions);
+const form = document.querySelector('form');
+const locationInput = document.querySelector('location');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const location = document.getElementById('location').value;
+
+    api.location = location;
+    processData().then((response) => {
+        console.log(response);
+    })
 });
