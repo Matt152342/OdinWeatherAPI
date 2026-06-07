@@ -41,28 +41,50 @@ const displayInfo = (conditions, precipitation, humidity, temperature, uvIndex) 
     const secondaryGrid = document.createElement('div');
 
     const conditionsDiv = document.createElement('div');
+    const conditionsHeader = document.createElement('div');
+    const tempInfo = document.createElement('div');
+    const conditionsInfo = document.createElement('div');
+
     const precipDiv = document.createElement('div');
+    const precipHeader = document.createElement('div');
+    const precipInfo = document.createElement('div');
+
     const humidDiv = document.createElement('div');
-    const tempDiv = document.createElement('div');
+    const humidHeader = document.createElement('div');
+    const humidInfo = document.createElement('div');
+
     const uvDiv = document.createElement('div');
+    const uvHeader = document.createElement('div');
+    const uvInfo = document.createElement('div');
 
-    primaryGrid.classList.add('primary');
-    secondaryGrid.classList.add('secondary');
+    conditionsHeader.textContent = "Conditions";
+    tempInfo.textContent = `${temperature} \xB0C`;
+    conditionsInfo.textContent = conditions;
 
-    conditionsDiv.classList.add('conditions');
-    precipDiv.classList.add('precipitation');
-    humidDiv.classList.add('humidity');
-    tempDiv.classList.add('temperature');
-    uvDiv.classList.add('uvIndex');
+    precipHeader.textContent = "Precipitation";
+    precipInfo.textContent = precipitation;
 
-    conditionsDiv.textContent = conditions;
-    precipDiv.textContent = precipitation;
-    humidDiv.textContent = humidity;
-    tempDiv.textContent = temperature;
-    uvDiv.textContent = uvIndex;
+    humidHeader.textContent = "Humidity";
+    humidInfo.textContent = humidity;
+
+    uvHeader.textContent = "UV Index";
+    uvInfo.textContent = uvIndex;
+
+    conditionsDiv.appendChild(conditionsHeader);
+    conditionsDiv.appendChild(conditionsHeader);
+    conditionsDiv.appendChild(tempInfo);
+    conditionsDiv.appendChild(conditionsInfo);
+
+    precipDiv.appendChild(precipHeader);
+    precipDiv.appendChild(precipInfo);
+
+    humidDiv.appendChild(humidHeader);
+    humidDiv.appendChild(humidInfo);
+
+    uvDiv.appendChild(uvHeader);
+    uvDiv.appendChild(uvInfo);
 
     primaryGrid.appendChild(conditionsDiv);
-    primaryGrid.appendChild(tempDiv);
 
     secondaryGrid.appendChild(precipDiv);
     secondaryGrid.appendChild(humidDiv);
