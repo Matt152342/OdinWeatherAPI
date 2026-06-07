@@ -4,7 +4,7 @@ const api = {
     key: "HYQHE67AXHWUKUPUWBNAAXQBN",
 
     get finalURL() {
-        return `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.town}?unitGroup=${this.metric}&key=${this.key}`;
+        return `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.location}?unitGroup=${this.metric}&key=${this.key}`;
     }
 }
 

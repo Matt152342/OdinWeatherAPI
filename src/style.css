@@ -1,0 +1,139 @@
+:root {
+    --text: #000000;
+    --accent: #CB2957;
+    --background: #DDDDDD;
+    --subBack: #EEEEEE;
+}
+
+* {
+    box-sizing: border-box;
+    color: var(--text);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+
+    background-color: var(--background);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.loading {
+    font-size: 2rem;
+    text-align: center;
+}
+
+#locationForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+input {
+    font-size: 16px;
+    padding: 5px 10px;
+
+    background-color: var(--subBack);
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid var(--text);
+}
+
+button {
+    padding: 5px 10px;
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+}
+
+button:hover {
+    color: var(--background);
+    background-color: var(--accent);
+    border-color: #000000;
+}
+
+.display {
+    height: 50%;
+    width: clamp(300px, 50vw, 600px); 
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 20px;
+}
+
+.primaryGrid {
+    padding: 20px;
+
+    background-color: var(--subBack);
+    border: 3px solid var(--accent);
+    border-radius: 12px;
+}
+
+.primaryGrid > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.conditionsHeader {
+    font-size: 2.5rem;
+}
+
+.tempInfo {
+    font-size: 2rem;
+}
+
+.secondaryGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.secondaryGrid > div {
+    padding: 10px;
+
+    background-color: var(--subBack);
+    border: 3px solid var(--accent);
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.header {
+    font-size: 1.5rem;
+}
+
+.info {
+    font-size: 1.25rem;
+}
+
+@media (max-width: 675px) {
+    .secondaryGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(auto-fit, 1fr);
+        gap: 10px;
+    }
+}

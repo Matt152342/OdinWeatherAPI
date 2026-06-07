@@ -70,6 +70,17 @@ const displayInfo = (conditions, precipitation, humidity, temperature, uvIndex) 
     uvHeader.textContent = "UV Index";
     uvInfo.textContent = uvIndex;
 
+    conditionsHeader.classList.add('conditionsHeader');
+    precipHeader.classList.add('header');
+    humidHeader.classList.add('header');
+    uvHeader.classList.add('header');
+
+    tempInfo.classList.add('tempInfo');
+    conditionsInfo.classList.add('info');
+    precipInfo.classList.add('info');
+    humidInfo.classList.add('info');
+    uvInfo.classList.add('info');
+
     conditionsDiv.appendChild(conditionsHeader);
     conditionsDiv.appendChild(conditionsHeader);
     conditionsDiv.appendChild(tempInfo);
@@ -90,6 +101,9 @@ const displayInfo = (conditions, precipitation, humidity, temperature, uvIndex) 
     secondaryGrid.appendChild(humidDiv);
     secondaryGrid.appendChild(uvDiv);
 
+    primaryGrid.classList.add('primaryGrid');
+    secondaryGrid.classList.add('secondaryGrid');
+
     display.appendChild(primaryGrid);
     display.appendChild(secondaryGrid);
 }
@@ -101,8 +115,11 @@ form.addEventListener('submit', (e) => {
 
     const location = document.getElementById('location').value;
 
+    display.innerHTML = '<div class="loading">Loading weather data...</div>';
+
     api.location = location;
     processData().then((response) => {
+        display.innerHTML = '';
         displayInfo(response.conditions, response.precipation, response.humidity, response.temperature, response.uvIndex);
     })
 });
