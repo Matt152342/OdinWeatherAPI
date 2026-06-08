@@ -1,6 +1,8 @@
 # Weather API Web App
 A minimalist, responsive weather application that fetches and displays real-time weather data for any location globally using the Visual Crossing Weather API.
 
+# Live Preview: https://matt152342.github.io/OdinWeatherAPI/
+
 ### Features
 Global Search: Enter any city or location to retrieve up-to-date weather statistics.
 
